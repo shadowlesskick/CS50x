@@ -6,4 +6,10 @@
 
 18:32
 
++ Searching algorithm
+    * log n for halving the book
+    * requires sorted data
 
+## 2015-12-14 - Week 1 ##
+
++ Lecture, continued 10:00
