@@ -23,4 +23,19 @@
 + Merge sort - usually better
 
 + gdb - GNU Project Debugger
-+ 
+    * quit
+    * run
+    * break
+    * next
+    * list, can also supply line number
+    * restart
+    * print - view or set variable
+    * continue
+    * info locals
+    * make
+    * disable - disable break points
+
+46592
+64187
+1222
+9601
