@@ -1,0 +1,25 @@
+0.  BMP: Can be 64 bit, Over 1.84467441e19
+    GIF: 256 Colours
+    JPEG:16.8 Million Colours
+    PNG: Can be 48 bit, Over 281 Trillion Colours
+1.  GIF
+2.  Lossless compression is compression where there is no information lost and the original information may be recovered. With lossy compression information can not be recovered completely. Lossy compression produces files with smaller sizes compared to lossess compression.
+3.  JPEG
+4.  It rewrites the metadata that pointed to the file, but leaves the disk blocks containing the file’s contents intact. Specifically, the system modifies the filename’s first character in the file’s directory entry to signal that the file has been deleted and that the directory entry can be recycled. Secondly, the system moves all of the file’s FAT clusters to the hard drive’s list of free clusters. The file information is still left and can be read.
+5.  You can write over the clusters previously used by the data, this may be done with specialised software.
+6.  It is a set of defined interger types.
+7.  It allows the portability of code on different platforms.
+8.  BYTE: 1
+    DWORD: 4
+    LONG: 4
+    WORD: 2
+9.  BM: 0x42, 0x4D
+10. bfSize is the size of the file, whilst biSize is only the size of the structure, which is the header metadata
+11. Origin in the top left hand corner
+12. biBitCount
+13. The file does not exist or you do not have the correct permissions.
+14. The size has been defined for the element when we are doing the read, and we are only reading one element
+15. 3
+16. fseek sets the file position pointer
+17. The current position of the file position pointer
+18. Not quite sure looks like Rob Bowen from the short and a cat.
