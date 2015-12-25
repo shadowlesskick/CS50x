@@ -26,7 +26,7 @@ typedef struct collisionNode
     struct collisionNode* next;
 } collisionNode;
 
-collisionNode hashtable[HASHTABLE_SIZE];
+collisionNode* hashtable;
 int numberOfEntries = 0;
 
 /**
@@ -39,32 +39,32 @@ bool check(const char* word)
     strcpy(word1, word);
     lower_string(word1);
     unsigned long hashnum = hash(word1) % HASHTABLE_SIZE;
-    collisionNode node = hashtable[hashnum];
+    collisionNode * node = &hashtable[hashnum];
     
     while(1)
     {
-        if(node.word == NULL)
+        if(node->word == NULL)
         {
             free(word1);
             return false;
         }
         else
         {
-            if(strcmp(node.word,word1) == 0)
+            if(strcmp(node->word,word1) == 0)
             {
                 free(word1);
                 return true;
             }
             else
             {
-                if(node.next == NULL)
+                if(node->next == NULL)
                 {
                     free(word1);
                     return false;
                 }
                 else
                 {
-                    node = *node.next;
+                    node = node->next;
                 }
             }
         }   
@@ -84,7 +84,7 @@ bool load(const char* dictionary)
         printf("Could not open %s.\n", dictionary);
         return false;
     }
-    
+    hashtable = malloc(sizeof(collisionNode)*HASHTABLE_SIZE);
     char* word = malloc((LENGTH+1)*sizeof(char));
     
     int index = 0;
@@ -144,21 +144,23 @@ unsigned int size(void)
  */
 bool unload(void)
 {
-    /*for(int i = 0; i < HASHTABLE_SIZE; i++)
+    collisionNode * node;
+    for(int i = 0; i < HASHTABLE_SIZE; i++)
     {
-        collisionNode* node = &hashtable[i];
+        node = &hashtable[i];
         while(1)
         {
             collisionNode* tmp = node->next;
-            free(node->word)
+            free(node->word);
             free(node);
             node = tmp;
             if(tmp == NULL)
             {
+                //free(hashtable[i]);
                 break;
             }
         }
-    }*/
+    }
     return true;  
 }
 
@@ -224,3 +226,4 @@ void lower_string(char *string)
       string++;
    }
 }
+
