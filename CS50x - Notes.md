@@ -27,6 +27,7 @@
     * run
     * break
     * next
+    * step - into function
     * list, can also supply line number
     * restart
     * print - view or set variable
@@ -35,7 +36,53 @@
     * make
     * disable - disable break points
 
-46592
-64187
-1222
-9601
+
+## 2015-12-23 - Week 04/05/06 Lectures##
+
++ Shellshock explanation
++ Recursion
++ Structs
++ Malloc
+
++ String, null character at end of string
++ string => char*
+  + string stores pointer to the address of the char array
++ int* a, data at address at a
++ &a, address of a
++ Buffer overflow
++ Data structures
+  + Linked list
+    + dynamic
+    + struct, int, node
+    + when pointer to a struct, -> notation to access field in struct instead of . notation
+    + no random access compared to array
+  + hash table
+    + linear probing
+    + separate chaining
+    + trie
+  + stack
+  + queue
+
++ IP, internet protocol
+  + address of computer
++ DHCP
+  + Dynamic host configuration protocol
++ DNS
+  + translate hostnames to ip addresses
++ TCP, increase probability that data is received
+  + splits data into packet
+  + record number of packets
+  + handshake to make sure that correct number of packets received
++ Ports
+  + FTP
+  + SMTP
+  + DNS
+  + HTTP
+    + hypertext transfer protocol
+  + HTTPS
++ Web
++ html
+  + hypertext markup language
+  + markup language
++ CSS
++ 
