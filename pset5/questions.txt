@@ -1,0 +1,24 @@
+0.  an obsecure term ostensibly referring to a lung disease caused by silica dust, sometims cited as one of the longest words in the English language.
+1.  returns resource usage
+2.  16
+3.  Reduces memory usage and allows for flexiblity
+4.  Reads a character from the file
+    Does this everytime the loop is run
+    Until end of file
+    Checks to see whether character is an alphbetical character or an apostrophe (which is not at the start of the word
+    Store character in current word storage and increments the index
+    Ignores the rest of the characters if it longer than LENGTH, detect end but it not being a alphabetical character and prepares for the next word by setting index = 0
+    Ignores word if it has a digit in it, inogres rests of chracters like in the previous statements
+    If the whole word has been found
+        End the char array with the null character
+        Increases the word counter
+        Checks the spelling of the word
+        Updates timing benchmarks
+        Prints word if mispelled
+        Prepares for next word by setting index to 0
+5.  fscanf requires the preknowledge of the format of the text for it be able to analysed
+6.  Making sure we can't modify the string which is passed, just incase
+7.  TODO
+8.  TODO
+9.  TODO
+10. TODO
