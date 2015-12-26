@@ -22,11 +22,11 @@ void lower_string(char*);
 // linked-list of 
 typedef struct collisionNode
 {
-    char* word;
+    char word[LENGTH+1];
     struct collisionNode* next;
 } collisionNode;
 
-collisionNode* hashtable;
+collisionNode* hashtable[HASHTABLE_SIZE];
 int numberOfEntries = 0;
 
 /**
@@ -39,7 +39,7 @@ bool check(const char* word)
     strcpy(word1, word);
     lower_string(word1);
     unsigned long hashnum = hash(word1) % HASHTABLE_SIZE;
-    collisionNode * node = &hashtable[hashnum];
+    collisionNode * node = hashtable[hashnum];
     
     while(1)
     {
@@ -84,7 +84,7 @@ bool load(const char* dictionary)
         printf("Could not open %s.\n", dictionary);
         return false;
     }
-    hashtable = malloc(sizeof(collisionNode)*HASHTABLE_SIZE);
+    
     char* word = malloc((LENGTH+1)*sizeof(char));
     
     int index = 0;
@@ -128,6 +128,7 @@ bool load(const char* dictionary)
     }
     
     free(word);
+    fclose(inptr);
     return true;
 }
 
@@ -147,20 +148,22 @@ bool unload(void)
     collisionNode * node;
     for(int i = 0; i < HASHTABLE_SIZE; i++)
     {
-        node = &hashtable[i];
-        while(1)
+        node = hashtable[i];
+        if(node != NULL)
         {
-            collisionNode* tmp = node->next;
-            free(node->word);
-            free(node);
-            node = tmp;
-            if(tmp == NULL)
+            while(1)
             {
-                //free(hashtable[i]);
-                break;
+                collisionNode* tmp = node->next;
+                free(node);
+                node = tmp;
+                if(tmp == NULL)
+                {
+                    break;
+                }
             }
         }
     }
+    
     return true;  
 }
 
@@ -183,13 +186,21 @@ unsigned long hash(const char *str)
 void addToDictionary(const char* word)
 {
     unsigned long hashnum = hash(word) % HASHTABLE_SIZE;
-    collisionNode *node = &hashtable[hashnum];
+    if(hashtable[hashnum] == NULL)
+    {
+        hashtable[hashnum] = malloc(sizeof(collisionNode));
+        strcpy(hashtable[hashnum]->word,word);
+        hashtable[hashnum]->next = NULL;
+        return;
+    }
+    collisionNode *node = hashtable[hashnum];
     while(1)
     {
-        if(node->word == NULL)
+        if(node == NULL)
             {
-                node->word = malloc((LENGTH+1)*sizeof(char));
+                node = malloc(sizeof(collisionNode));
                 strcpy(node->word,word);
+                node->next = NULL;
                 return;
             }
         else
@@ -198,7 +209,6 @@ void addToDictionary(const char* word)
             {
                 node->next = malloc(sizeof(collisionNode));
                 node = (node->next);
-                node->word = malloc((LENGTH+1)*sizeof(char));
                 strcpy(node->word, word);
                 node->next = NULL;
                 return;

@@ -1,36 +1,8 @@
-==5166== Memcheck, a memory error detector
-==5166== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
-==5166== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
-==5166== Command: ./speller /home/cs50/pset5/texts/austinpowers.txt
-==5166== 
-==5166== Conditional jump or move depends on uninitialised value(s)
-==5166==    at 0x8048FDC: check (dictionary.c:46)
-==5166==    by 0x80492D1: load (dictionary.c:118)
-==5166==    by 0x8048755: main (speller.c:45)
-==5166== 
-==5166== Conditional jump or move depends on uninitialised value(s)
-==5166==    at 0x804937D: addToDictionary (dictionary.c:189)
-==5166==    by 0x80492ED: load (dictionary.c:120)
-==5166==    by 0x8048755: main (speller.c:45)
-==5166== 
-==5166== Conditional jump or move depends on uninitialised value(s)
-==5166==    at 0x8049033: check (dictionary.c:60)
-==5166==    by 0x80492D1: load (dictionary.c:118)
-==5166==    by 0x8048755: main (speller.c:45)
-==5166== 
-==5166== Conditional jump or move depends on uninitialised value(s)
-==5166==    at 0x80493C2: addToDictionary (dictionary.c:197)
-==5166==    by 0x80492ED: load (dictionary.c:120)
-==5166==    by 0x8048755: main (speller.c:45)
-==5166== 
-==5166== Conditional jump or move depends on uninitialised value(s)
-==5166==    at 0x8048FDC: check (dictionary.c:46)
-==5166==    by 0x8048AED: main (speller.c:117)
-==5166== 
-==5166== Conditional jump or move depends on uninitialised value(s)
-==5166==    at 0x8049033: check (dictionary.c:60)
-==5166==    by 0x8048AED: main (speller.c:117)
-==5166== 
+==8972== Memcheck, a memory error detector
+==8972== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==8972== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==8972== Command: ./speller /home/cs50/pset5/texts/austinpowers.txt
+==8972== 
 
 MISSPELLED WORDS
 
@@ -682,25 +654,18 @@ VO
 WORDS MISSPELLED:     644
 WORDS IN DICTIONARY:  143091
 WORDS IN TEXT:        19190
-TIME IN load:         1.56
-TIME IN check:        0.12
+TIME IN load:         2.62
+TIME IN check:        0.18
 TIME IN size:         0.00
-TIME IN unload:       0.00
-TIME IN TOTAL:        1.68
+TIME IN unload:       0.20
+TIME IN TOTAL:        3.00
 
-==5166== 
-==5166== HEAP SUMMARY:
-==5166==     in use at exit: 6,910,658 bytes in 184,107 blocks
-==5166==   total heap usage: 346,391 allocs, 162,284 frees, 10,056,060 bytes allocated
-==5166== 
-==5166== LEAK SUMMARY:
-==5166==    definitely lost: 4,954,152 bytes in 134,408 blocks
-==5166==    indirectly lost: 1,956,154 bytes in 49,698 blocks
-==5166==      possibly lost: 0 bytes in 0 blocks
-==5166==    still reachable: 352 bytes in 1 blocks
-==5166==         suppressed: 0 bytes in 0 blocks
-==5166== Rerun with --leak-check=full to see details of leaked memory
-==5166== 
-==5166== For counts of detected and suppressed errors, rerun with: -v
-==5166== Use --track-origins=yes to see where uninitialised values come from
-==5166== ERROR SUMMARY: 269318 errors from 6 contexts (suppressed: 0 from 0)
+==8972== 
+==8972== HEAP SUMMARY:
+==8972==     in use at exit: 0 bytes in 0 blocks
+==8972==   total heap usage: 305,375 allocs, 305,375 frees, 8,986,486 bytes allocated
+==8972== 
+==8972== All heap blocks were freed -- no leaks are possible
+==8972== 
+==8972== For counts of detected and suppressed errors, rerun with: -v
+==8972== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

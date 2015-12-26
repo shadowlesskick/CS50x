@@ -18,7 +18,7 @@
         Prepares for next word by setting index to 0
 5.  fscanf requires the preknowledge of the format of the text for it be able to analysed
 6.  Making sure we can't modify the string which is passed, just incase
-7.  TODO
-8.  TODO
-9.  TODO
-10. TODO
+7.  A hashtable with linked lists for the buckets to take care of the collisions was implemented. DBJ2 hashing function was used to generate a hashtable of size 200,000. 
+8.  It wasn't slow, it was faster than the staff code
+9.  No changes, did research and tried to use to most optimal algorithm from the beginning
+10. I believe the number of operations could be reduced, if a perfect has could be generated, then no collisions need be considered. But considering misspelled word can be anything and the domain is infinite.
