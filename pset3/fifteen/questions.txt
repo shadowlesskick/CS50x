@@ -1,0 +1,12 @@
+questions.txt
+
+Computer Science 50
+Problem Set 3
+
+0. 3x3 to 9x9
+1. Array of an array (matrix in maths)
+2. greet()
+3.  init()
+    draw()
+    move()
+    won()
